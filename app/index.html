@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>TaskFlow QA</title>
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app-container">
+    <section class="login-card" data-cy="login-screen">
+      <div class="brand">
+        <span class="brand-icon">📝</span>
+        <h1>TaskFlow QA</h1>
+        <p>Mini sistema de tarefas para praticar automação com Cypress.</p>
+      </div>
+
+      <form class="login-form" data-cy="login-form">
+        <div class="form-group">
+          <label for="username">Usuário</label>
+          <input
+            id="username"
+            type="text"
+            placeholder="Digite seu usuário"
+            data-cy="username-input"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Digite sua senha"
+            data-cy="password-input"
+          />
+        </div>
+
+        <button type="submit" data-cy="login-button">
+          Entrar
+        </button>
+
+        <p class="error-message hidden" data-cy="login-error">
+          Usuário ou senha inválidos.
+        </p>
+      </form>
+
+      <div class="login-help">
+        <p><strong>Usuário:</strong> admin</p>
+        <p><strong>Senha:</strong> 123456</p>
+      </div>
+    </section>
+
+    <section class="dashboard hidden" data-cy="dashboard-screen">
+      <header class="dashboard-header">
+        <div>
+          <h1>Minhas tarefas</h1>
+          <p>Organize seus estudos e pratique automação.</p>
+        </div>
+
+        <button class="secondary-button" data-cy="logout-button">
+          Sair
+        </button>
+      </header>
+
+      <section class="task-panel">
+        <form class="task-form" data-cy="task-form">
+          <input
+            type="text"
+            placeholder="Digite uma nova tarefa"
+            data-cy="task-input"
+          />
+
+          <button type="submit" data-cy="add-task-button">
+            Adicionar
+          </button>
+        </form>
+
+        <p class="error-message hidden" data-cy="task-error">
+          Digite uma tarefa antes de adicionar.
+        </p>
+
+        <div class="filters">
+          <button class="filter-button active" data-filter="all" data-cy="filter-all">
+            Todas
+          </button>
+
+          <button class="filter-button" data-filter="pending" data-cy="filter-pending">
+            Pendentes
+          </button>
+
+          <button class="filter-button" data-filter="completed" data-cy="filter-completed">
+            Concluídas
+          </button>
+        </div>
+
+        <ul class="task-list" data-cy="task-list"></ul>
+      </section>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

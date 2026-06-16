@@ -1,0 +1,19 @@
+{
+  "validUser": {
+    "username": "admin",
+    "password": "123456"
+  },
+
+  "invalidUser": {
+    "username": "admin",
+    "password": "senhaerrada"
+  },
+  "tasks": {
+    "simpleTask": "Tarefa de teste",
+    "studyTask": "Estudar Cypress",
+    "commitTask": "Fazer commit no GitHub"
+  },
+    "invalidLogin": {
+        "messages": "Usuário ou senha inválidos."
+    }
+}
