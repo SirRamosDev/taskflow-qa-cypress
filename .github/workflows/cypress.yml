@@ -5,6 +5,7 @@ on:
 
 jobs:
   cypress-test:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -12,13 +13,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+
+      - name: Cypress Tests
+        uses: cypress-io/github-action@v6
         with:
-          node-version: 24
+          start: npm run start
+          wait-on: http://localhost:3000
 
-      - name: Install dependencies
-        run: npm install
 
-      - name: Run Cypress tests
-        run: npm run cy:ci
+      - name: Upload Cypress artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-results
+          path: |
+            cypress/screenshots
+            cypress/videos
